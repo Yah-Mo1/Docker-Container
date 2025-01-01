@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  web:
+    image: app-flask-image
+    ports:
+      - "5002:5002"
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
