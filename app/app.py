@@ -1,8 +1,12 @@
 from flask import Flask
 from redis import Redis 
-
+import os
 app = Flask(__name__)
-redis = Redis(host='redis', port=6379)
+
+redis_host = os.getenv('REDIS_HOST', 'localhost')
+redis_port = int(os.getenv('REDIS_PORT', 6379))
+
+redis = Redis(host=redis_host, port=redis_port)
 
 @app.route('/')
 def home():
@@ -10,12 +14,8 @@ def home():
 
 @app.route("/count")
 def count():
-    # Increment count by one each time the user refreshes the page
     counter = redis.incr("hits")
-    return counter 
-
-    # redis.incr('page_count')
-    # return "This page has been viewed {} times".format(redis.get('page_count').decode('utf-8'))
+    return f"Hello, this is the counter: ${counter}" 
 
 @app.route("/hello")
 def hello():

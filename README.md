@@ -33,4 +33,4 @@ Navigate to http://localhost:5000/count to see the visit count increment each ti
 
 Persistent Storage for Redis: Configure Redis to use a volume to persist its data.
 Environment Variables: Modify the Flask application to read Redis connection details from environment variables and update the docker-compose.yml accordingly.
-Scaling the Application: Scale the Flask service to run multiple instances and load balance between them using Docker Compose.
+Scaling the Application: Scale the Flask service to run multiple instances and load balance between them using Docker Compose. --> use nginx for load balancing and modifying dockercompose to have deploy --> replicas option
