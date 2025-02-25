@@ -103,7 +103,7 @@ redis
    docker-compose up
    ```
 3. **Access Application**:  
-   Open `http://localhost` in your browser.
+   Open `http://localhost:5002` in your browser.
 
 ---
 
